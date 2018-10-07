@@ -1,4 +1,3 @@
-
 // Import libraries
 const five = require("johnny-five");
 const express = require("express");
@@ -33,4 +32,13 @@ board.on("ready", function() {
 
   // Strobe the pin on/off, defaults to 100ms phases
   led.strobe();
+});
+
+var five = require('johnny-five');
+var board = new five.Board();
+board.on('ready', function(){
+  var led = new five.Led({
+      pin:13
+  });
+  led.blink(5000);
 });
