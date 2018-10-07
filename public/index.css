@@ -1,7 +1,35 @@
 .red {
-  background-color: red !important;
+  background-color: rgb(240, 84, 84) !important;
 }
 
 .green {
-  background-color: green !important;
+  background-color: rgb(157, 209, 241) !important;
+}
+
+body {
+  background-color: rgb(230, 230, 230)
+}
+
+#stupidCard img {
+  height: 200px;
+}
+
+.header img {
+  width: 80px !important;
+  margin-right: 30px;
+}
+
+#menu {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+#stupidCard {
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+#card-container {
+  margin: 100px auto;
 }

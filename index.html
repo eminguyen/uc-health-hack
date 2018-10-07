@@ -1,13 +1,147 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Burnt Out</title>
+      <title>eMDB</title>
       <link rel='stylesheet' type='text/css' href='index.css'>
-
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
   </head>
-  <body class="green">
-      <h1>Alert! We have a shit ton of things to do!</h1>
+
+  <body>
+    <div class="ui fixed inverted menu" id='menu'>
+      <div class="ui container">
+        <a href="#" class="header item">
+          <img class="logo" src="emdb.png">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eMedical Database
+        </a>
+        <a href="#" class="item">Home</a>
+      </div>
+    </div>
+
+      <div class="ui container">
+        <div class='ui grid cards' id='card-container'>
+          <div class='whitney green centered attached card' id="stupidCard">
+            <img src='https://images.pexels.com/photos/432722/pexels-photo-432722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'>
+            <div class='content'>
+              <div class='header'>
+                Whitney Miller
+              </div>
+              <div class="description">
+                Condition: Meningitis<br>
+                Allergies: Peanuts, Chocolate
+                <br>
+                <br>
+              </div>
+              <div class='ui labeled icon bottom attached blue button' id="stupidButton">
+                <i class ="bell slash icon"></i>
+                Mute&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+          <div class='whitney green centered raised card' id="stupidCard">
+            <img src='https://images.pexels.com/photos/6110/man-holiday-people-face.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'>
+            <div class='content'>
+              <div class='header'>
+                Gerard Houston
+              </div>
+              <div class="description">
+                Condition: Arthritis<br>
+                Allergies: None
+                <br>
+                <br>
+              </div>
+              <div class='ui labeled icon bottom attached blue button' id="stupidButton">
+                <i class ="bell slash icon"></i>
+                Mute&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+          <div class='whitney green centered raised card' id="stupidCard">
+            <img src='https://images.pexels.com/photos/881837/pexels-photo-881837.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'>
+            <div class='content'>
+              <div class='header'>
+                Siraj Patel
+              </div>
+              <div class="description">
+                Condition: Tuberculosis<br>
+                Allergies: Pine nuts
+                <br>
+                <br>
+              </div>
+              <div class='ui labeled icon bottom attached blue button' id="stupidButton">
+                <i class ="bell slash icon"></i>
+                Mute&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+          <div class='whitney green centered raised card' id="stupidCard">
+            <img src='https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'>
+            <div class='content'>
+              <div class='header'>
+                Cassandra Green
+              </div>
+              <div class="description">
+                Condition: Asthma<br>
+                Allergies: Shellfish, poison ivy
+                <br>
+                <br>
+              </div>
+              <div class='ui labeled icon bottom attached blue button' id="stupidButton">
+                <i class ="bell slash icon"></i>
+                Mute&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+          <div class='whitney green centered raised card' id="stupidCard">
+            <img src='https://images.pexels.com/photos/316680/pexels-photo-316680.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'>
+            <div class='content'>
+              <div class='header'>
+                Carl Frankfurt
+              </div>
+              <div class="description">
+                Condition: Dementia<br>
+                Allergies: None
+                <br>
+                <br>
+              </div>
+              <div class='ui labeled icon bottom attached blue button' id="stupidButton">
+                <i class ="bell slash icon"></i>
+                Mute&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+          <div class='whitney green centered raised card' id="stupidCard">
+            <img src='https://images.pexels.com/photos/1006227/pexels-photo-1006227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'>
+            <div class='content'>
+              <div class='header'>
+                Alicia Freeman
+              </div>
+              <div class="description">
+                Condition: Hemolytic Anemia<br>
+                Allergies: Penicillin
+                <br>
+                <br>
+              </div>
+              <div class='ui labeled icon bottom attached blue button' id="stupidButton">
+                <i class ="bell slash icon"></i>
+                Mute&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
       <script src="index.js"></script>
   </body>
 </html>
