@@ -10,6 +10,14 @@
   background-color: purple !important;
 }
 
+.orange {
+  background-color: orange !important;
+}
+
+.yellow {
+  background-color: green !important;
+}
+
 body {
   background-color: rgb(230, 230, 230)
 }

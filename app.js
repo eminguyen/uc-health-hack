@@ -72,9 +72,9 @@ board.on("ready", function() {
     console.log("  in  : ", this.in);
     console.log("-----------------");
 
-    // Play sound if in range
-    if (this.cm < 30 && this.cm > 10 && !piezo.isPlaying && !soundPlaying) {
-      io.sockets.emit('soundon');
+    // Call Doctor at 20 to 30 cm
+    if (this.cm > 20 && this.cm <= 30 && !piezo.isPlaying && !soundPlaying) {
+      io.sockets.emit('calldoctor');
       piezo.play({
         song: [
           ["C6", 10],
@@ -82,6 +82,29 @@ board.on("ready", function() {
         tempo:100
       });
     }
+
+    // Took Medication at 10 to 20 cm
+    if (this.cm > 10 && this.cm <= 20 && !piezo.isPlaying && !soundPlaying) {
+      io.sockets.emit('tookmedication');
+      piezo.play({
+        song: [
+          ["C6", 10],
+        ],
+        tempo:100
+      });
+    }
+
+    // Answered Doctors Question at 0 to 10 cm
+    if (this.cm > 0 && this.cm <= 10 && !piezo.isPlaying && !soundPlaying) {
+      io.sockets.emit('answerdoctor');
+      piezo.play({
+        song: [
+          ["C6", 10],
+        ],
+        tempo:100
+      });
+    }
+
 
     else if (this.cm > 30 && !soundPlaying) {
       io.sockets.emit('soundoff');
