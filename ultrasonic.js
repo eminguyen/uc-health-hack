@@ -7,14 +7,34 @@ board.on("ready", function() {
     pin: 7
   });
 
+  var piezo = new five.Piezo({
+    pin: 8,
+  })
+
+  var x = 0;
   proximity.on("data", function() {
     console.log("Proximity: ");
     console.log("  cm  : ", this.cm);
     console.log("  in  : ", this.in);
     console.log("-----------------");
-  });
 
-  proximity.on("change", function() {
-    console.log("The obstruction has moved.");
+    // Play sound if in range
+    if (this.cm < 30 && this.cm > 10 && !piezo.isPlaying) {
+      piezo.play({
+        song: [
+          ["C2", 1 / 4],
+        ],
+        tempo: 100
+      })
+    }
+
+    else if (this.cm > 30) {
+      piezo.play({
+        song: [
+          [null, 1 / 4],
+        ],
+        tempo: 100
+      });
+    };
   });
 });

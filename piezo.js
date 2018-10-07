@@ -3,7 +3,7 @@ var board = new five.Board();
 
 board.on("ready", function() {
   var piezo = new five.Piezo({
-    pin: 7,
+    pin: 8,
   })
   piezo.play({
     song: [

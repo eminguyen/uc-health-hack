@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // Import libraries
 const five = require("johnny-five");
 const express = require('express');
@@ -18,10 +19,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
+=======
+var five = require("johnny-five");
+var board = new five.Board();
+>>>>>>> Stashed changes
 
 server.listen(3000);
 
 board.on("ready", function() {
+<<<<<<< Updated upstream
 
   bumper = new five.Button(4);
   led = new five.Led(2);
@@ -35,4 +41,16 @@ board.on("ready", function() {
     led.off();
 
   });
+=======
+  var led = new five.Led(2);
+
+  // This will grant access to the led instance
+  // from within the REPL that's created when
+  // running this program.
+  this.repl.inject({
+    led: led
+  });
+
+  led.blink();
+>>>>>>> Stashed changes
 });
