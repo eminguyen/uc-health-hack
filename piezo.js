@@ -26,6 +26,6 @@ board.on("ready", function() {
       ["F4", 1],
       [null, 1 / 2]
     ],
-    tempo: 50
+    tempo: 100
   })
 });
