@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 // Import libraries
 const five = require("johnny-five");
 const express = require('express');
@@ -8,10 +7,11 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 var count = 0;
+var soundIsOkay;
 
 // Initializing Objects
 const board = new five.Board();
-var bumper, led, handlebarsObject,currColor;
+var bumper, led, handlebarsObject,currColor, ledOn;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -19,38 +19,78 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
-=======
-var five = require("johnny-five");
-var board = new five.Board();
->>>>>>> Stashed changes
 
 server.listen(3000);
 
 board.on("ready", function() {
-<<<<<<< Updated upstream
 
   bumper = new five.Button(4);
   led = new five.Led(2);
+  piezo = new five.Piezo(8);
+  soundPlaying = false;
+  ledOn = false;
+
+  var proximity = new five.Proximity({
+    controller: "HCSR04",
+    pin: 7
+  });
 
   bumper.on("press", function() {
+    if(!ledOn) {
     io.sockets.emit('led');
-    led.on();
+      piezo.play({
+        song: [
+          ["E6", 1],
+          ["C6", 1],
+          ["E6", 1],
+          ["C6", 1],
 
-  }).on("release", function() {
+        ],
+        tempo: 100
+      })
+      led.on();
+      soundPlaying = true;
+      ledOn = true;
+    }
+    else {
+      io.sockets.emit('ledoff');
+      led.off();
+      soundPlaying = false;
+      ledOn = false;
+    }
+  });/*.on("release", function() {
     io.sockets.emit('ledoff');
     led.off();
+    soundPlaying = false;
 
+  });*/
+
+  var x = 0;
+  proximity.on("data", function() {
+    console.log("Proximity: ");
+    console.log("  cm  : ", this.cm);
+    console.log("  in  : ", this.in);
+    console.log("-----------------");
+
+    // Play sound if in range
+    if (this.cm < 30 && this.cm > 10 && !piezo.isPlaying && !soundPlaying) {
+      io.sockets.emit('soundon');
+      piezo.play({
+        song: [
+          ["C6", 10],
+        ],
+        tempo:100
+      });
+    }
+
+    else if (this.cm > 30 && !soundPlaying) {
+      io.sockets.emit('soundoff');
+      piezo.play({
+        song: [
+          [null, 1 / 4],
+        ],
+        tempo: 100
+      });
+    };
   });
-=======
-  var led = new five.Led(2);
-
-  // This will grant access to the led instance
-  // from within the REPL that's created when
-  // running this program.
-  this.repl.inject({
-    led: led
-  });
-
-  led.blink();
->>>>>>> Stashed changes
 });

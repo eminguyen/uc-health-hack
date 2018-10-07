@@ -6,6 +6,10 @@
   background-color: rgb(157, 209, 241) !important;
 }
 
+.purple {
+  background-color: purple !important;
+}
+
 body {
   background-color: rgb(230, 230, 230)
 }
